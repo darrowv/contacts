@@ -1,0 +1,248 @@
+.root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(251, 172, 94);
+  background: linear-gradient(
+    82deg,
+    rgba(251, 172, 94, 1) 7%,
+    rgba(176, 131, 177, 1) 35%,
+    rgba(41, 178, 155, 1) 60%
+  );
+}
+
+.container {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.contactList,
+.contactInfo {
+  height: 450px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.705);
+  box-shadow: 10px 0px 21px 4px rgba(34, 60, 80, 0.41);
+}
+
+.contactList {
+  width: 30%;
+  overflow: scroll;
+
+  .listTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      border: none;
+      border-radius: 6px;
+      height: 25px;
+      width: 80%;
+      padding: 10px;
+    }
+
+    button {
+      margin-left: 5px;
+      width: 17%;
+      height: 25px;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      font-size: 15px;
+      transition: 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #d2fb91d3;
+      }
+    }
+  }
+
+  .emptySign {
+    text-align: center;
+    font-weight: 300;
+    margin-top: 30px;
+  }
+
+  .contactItem {
+    border-radius: 5px;
+    background: rgba(253, 253, 253, 0.449);
+    margin: 10px auto;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+      background-color: rgb(156, 215, 236);
+      .removeContact {
+        opacity: 1;
+      }
+    }
+
+    .itemName {
+      padding: 10px;
+      font-weight: 350;
+    }
+
+    .removeContact {
+      padding-right: 10px;
+      font-size: 25px;
+      color: red;
+      opacity: 0;
+      transition: 0.3s;
+    }
+  }
+}
+
+.contactInfo {
+  width: 65%;
+  position: relative;
+
+  .editButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.6);
+    transition: 0.3s;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .editInput {
+    background: rgba(0, 0, 0, 0.127);
+    border: 1px solid rgba(44, 44, 44, 0.384);
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight: 300;
+    outline: none;
+    margin: 14px auto;
+    padding: 4px;
+    text-align: center;
+    width: min-content;
+    font-family: "Roboto", "sans-serif";
+  }
+
+  .contactName,
+  .contactNumber,
+  .contactEmail {
+    text-align: center;
+    margin: 20px;
+    border: 1px solid rgba(154, 154, 154, 0.379);
+    border-radius: 10px;
+    transition: 0.3s;
+
+    &:hover {
+      border: 1px solid rgba(119, 119, 119, 0.703);
+    }
+
+    h1 {
+      font-weight: 250;
+      font-size: 35px;
+      color: rgb(145, 12, 12);
+      margin: 5px auto;
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 300;
+    }
+  }
+
+  .chooseContact {
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+.addingWindow {
+  width: 50%;
+  height: 430px;
+  text-align: center;
+  display: grid;
+  margin: auto;
+  color: rgb(45, 45, 45);
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: -20px;
+    font-weight: 300;
+  }
+
+  div {
+    margin: auto;
+    width: 300px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      height: 30px;
+      width: 150px;
+      padding: 10px;
+      font-size: 17px;
+      font-family: "Roboto", "sans-serif";
+      font-weight: 300;
+      background-color: rgba(255, 255, 255, 0.629);
+      border: none;
+      outline: none;
+      border-radius: 5px;
+    }
+  }
+
+  .addBtn,
+  .cancelBtn {
+    margin: auto;
+    width: 70px;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 10px 0px 21px 4px rgba(34, 60, 80, 0.41);
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: "Roboto", "sans-serif";
+    font-weight: 300;
+  }
+
+  .addBtn {
+    &:hover {
+      background-color: #d2fb91d3;
+    }
+  }
+
+  .cancelBtn {
+    &:hover {
+      background-color: #ff5a5ad3;
+    }
+  }
+}
+
+.logoutBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-color: rgb(255, 56, 56);
+  color: white;
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}

@@ -1,0 +1,121 @@
+.root {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: rgb(251, 132, 94);
+  background: linear-gradient(
+    82deg,
+    rgb(251, 80, 65) 10%,
+    rgb(61, 157, 174) 80%
+  );
+}
+
+.loginWindow {
+  margin: auto;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.608);
+  width: 550px;
+  height: 320px;
+  border-radius: 35px;
+  box-shadow: 10px 0px 21px 4px rgba(34, 60, 80, 0.41);
+
+  .title {
+    margin-bottom: 30px;
+    color: rgb(0, 0, 0);
+    font-weight: 200;
+    font-size: 35px;
+  }
+}
+
+.emailInput,
+.passwordInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  margin: auto;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgb(0, 0, 0);
+
+  input {
+    height: 35px;
+    width: 60%;
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid rgb(140, 140, 140);
+    background-color: rgba(255, 255, 255, 0.829);
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 300;
+    font-family: "Roboto", "sans-serif";
+
+    &:focus {
+      box-shadow: 0px 0px 15px 0px rgba(30, 48, 61, 0.658);
+    }
+  }
+}
+
+.loginButton {
+  margin-top: 30px;
+  width: 100px;
+  height: 35px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgb(140, 140, 140);
+  outline: none;
+  transition: 0.3s;
+  font-size: 20px;
+  font-family: "Roboto", "sans-serif";
+  font-weight: 300;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #23c483;
+    color: white;
+    box-shadow: 10px 0px 21px 4px rgba(34, 60, 80, 0.41);
+  }
+}
+
+.letsGo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // margin-top: 20px;
+
+  .letsgoBtn {
+    background-color: #23c483;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    width: 270px;
+    height: 130px;
+    font-size: 40px;
+    font-family: "Roboto", "sans-serif";
+    font-weight: 300;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(30, 48, 61, 0.552);
+    transition: 0.3s;
+
+    &:hover {
+      box-shadow: none;
+      transform: scale(0.8)
+    }
+  }
+  .logoutBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: rgb(255, 56, 56);
+    color: white;
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+  }
+}
