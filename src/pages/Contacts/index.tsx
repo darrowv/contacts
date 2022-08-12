@@ -1,17 +1,17 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ContactInfo from "./ContactInfo";
 import ContactList from "./ContactList";
 import styles from "./Contacts.module.scss";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanItems } from "../../redux/contactsSlice";
+import { RootState } from "../../redux/store";
 
 const Contacts = () => {
   const dispatch = useDispatch();
   const [editingMode, setEditingMode] = useState(false);
 
-  // @ts-ignore
-  const contacts = useSelector((state) => state.contacts.items);
+  const contacts = useSelector((state: RootState) => state.contacts.items);
 
   useEffect(() => {
     const json = JSON.stringify(contacts);
@@ -36,7 +36,7 @@ const Contacts = () => {
     <motion.div
       className={styles.root}
       initial={{ width: 0 }}
-      animate={{ width: "100vw" }}
+      animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.5 } }}
     >
       <div className={styles.container}>

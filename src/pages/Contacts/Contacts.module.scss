@@ -1,29 +1,34 @@
 .root {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgb(251, 172, 94);
-  background: linear-gradient(
-    82deg,
-    rgba(251, 172, 94, 1) 7%,
-    rgba(176, 131, 177, 1) 35%,
-    rgba(41, 178, 155, 1) 60%
-  );
+  margin: auto;
+  max-width: 1200px;
+  padding: 100px 15px;
 }
 
 .container {
-  width: 800px;
-  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  min-height: 460px;
+  width: 65%;
+  margin: auto;
+
+  @media (max-width: 1000px) {
+    width: 80%;
+  }
+
+  @media (max-width: 850px) {
+    width: 90%;
+  }
+
+  @media (max-width: 600px) {
+    width: 95%;
+  }
+
+  @media (max-width: 480px) {
+    width: 99%;
+  }
 }
 
 .contactList,
 .contactInfo {
-  height: 450px;
   border-radius: 10px;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.705);
@@ -31,8 +36,18 @@
 }
 
 .contactList {
-  width: 30%;
+  flex-basis: 40%;
+  height: 520px;
+  margin-right: 6px;
   overflow: scroll;
+
+  @media (max-width: 480px) {
+    height: 400px;
+  }
+
+  @media (max-width: 480px) {
+    margin-right: 0;
+  }
 
   .listTop {
     display: flex;
@@ -81,6 +96,10 @@
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 460px) {
+      font-size: 13px;
+    }
+
     &:hover {
       background-color: rgb(156, 215, 236);
       .removeContact {
@@ -89,8 +108,16 @@
     }
 
     .itemName {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       padding: 10px;
-      font-weight: 350;
+      padding-left: 20px;
+      font-weight: 300;
+
+      @media (max-width: 460px) {
+        padding-left: 15px;
+      }
     }
 
     .removeContact {
@@ -99,13 +126,28 @@
       color: red;
       opacity: 0;
       transition: 0.3s;
+
+      @media (max-width: 768px) {
+        font-size: 20px;
+      }
+
+      @media (max-width: 460px) {
+        font-size: 15px;
+      }
     }
   }
 }
 
 .contactInfo {
-  width: 65%;
+  // width: 65%;
+  flex-basis: 60%;
+  margin-left: 6px;
   position: relative;
+  height: 520px;
+
+  @media (max-width: 480px) {
+    height: 400px;
+  }
 
   .editButton {
     position: absolute;
@@ -121,7 +163,7 @@
   }
 
   .editInput {
-    background: rgba(0, 0, 0, 0.127);
+    background: rgba(81, 81, 81, 0.127);
     border: 1px solid rgba(44, 44, 44, 0.384);
     border-radius: 5px;
     font-size: 22px;
@@ -130,18 +172,30 @@
     margin: 14px auto;
     padding: 4px;
     text-align: center;
-    width: min-content;
+    width: 50%;
     font-family: "Roboto", "sans-serif";
+
+    @media (max-width: 480px) {
+      font-size: 15px;
+      padding: 2px;
+    }
   }
 
   .contactName,
   .contactNumber,
   .contactEmail {
     text-align: center;
+    word-break: break-all;
+    padding: 10px;
     margin: 20px;
+    height: 140px;
     border: 1px solid rgba(154, 154, 154, 0.379);
     border-radius: 10px;
     transition: 0.3s;
+
+    @media (max-width: 480px) {
+      height: 100px;
+    }
 
     &:hover {
       border: 1px solid rgba(119, 119, 119, 0.703);
@@ -152,11 +206,19 @@
       font-size: 35px;
       color: rgb(145, 12, 12);
       margin: 5px auto;
+
+      @media (max-width: 480px) {
+        font-size: 25px;
+      }
     }
 
     p {
       font-size: 22px;
       font-weight: 300;
+
+      @media (max-width: 480px) {
+        font-size: 15px;
+      }
     }
   }
 
@@ -164,71 +226,135 @@
     font-size: 30px;
     font-weight: 300;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+
+    @media (max-width: 570px) {
+      font-size: 20px;
+    }
   }
 }
 
 .addingWindow {
-  width: 50%;
-  height: 430px;
+  margin-right: 6px;
+  flex-basis: 40%;
   text-align: center;
-  display: grid;
-  margin: auto;
+  height: 520px;
   color: rgb(45, 45, 45);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.705);
+  box-shadow: 10px 0px 21px 4px rgba(34, 60, 80, 0.41);
+
+  @media (max-width: 480px) {
+    height: 400px;
+  }
 
   h2 {
     font-size: 30px;
-    margin-bottom: -20px;
+    margin-bottom: 20px;
     font-weight: 300;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 460px) {
+      font-size: 20px;
+    }
   }
 
-  div {
-    margin: auto;
-    width: 300px;
+  .dataDivs {
+    margin: 10px auto;
+    width: 90%;
     height: 40px;
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 300;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    input {
-      height: 30px;
-      width: 150px;
-      padding: 10px;
+    @media (max-width: 768px) {
       font-size: 17px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 13px;
+    }
+
+    input {
+      height: 25px;
+      width: 50%;
+      padding: 10px;
+      font-size: 15px;
       font-family: "Roboto", "sans-serif";
       font-weight: 300;
       background-color: rgba(255, 255, 255, 0.629);
       border: none;
       outline: none;
       border-radius: 5px;
+
+      @media (max-width: 768px) {
+        height: 20px;
+        font-size: 12px;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 9px;
+      }
     }
+  }
+
+  .windowButtons {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-evenly;
   }
 
   .addBtn,
   .cancelBtn {
-    margin: auto;
-    width: 70px;
     height: 30px;
     font-size: 20px;
     border: none;
     border-radius: 5px;
-    box-shadow: 10px 0px 21px 4px rgba(34, 60, 80, 0.41);
+    box-shadow: 0px 0px 5px 0px rgba(34, 60, 80, 0.41);
     cursor: pointer;
     transition: 0.3s;
     font-family: "Roboto", "sans-serif";
     font-weight: 300;
+
+    span {
+      padding: 10px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 590px) {
+      font-size: 10px;
+      height: 25px;
+
+      span {
+        padding: 5px;
+      }
+    }
+
+    @media (max-width: 500px) {
+    }
   }
 
   .addBtn {
     &:hover {
-      background-color: #d2fb91d3;
+      background-color: #66d035d3;
     }
   }
 
   .cancelBtn {
     &:hover {
-      background-color: #ff5a5ad3;
+      background-color: #ff5959d3;
     }
   }
 }

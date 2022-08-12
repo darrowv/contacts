@@ -2,17 +2,11 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Roboto", "sans-serif";
 }
 
 body {
-  background: rgb(80, 148, 187);
-  background: linear-gradient(
-    90deg,
-    rgba(80, 148, 187, 1) 0%,
-    rgba(198, 105, 252, 1) 100%
-  );
-  min-width: 1000px;
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
+  background-color: rgb(66, 104, 173);
 }

@@ -23,7 +23,9 @@ const ContactList: React.FC<ContactListProps> = ({ editingMode }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const contacts = useSelector((state: RootState) => state.contacts.items);
-  const contact = useSelector((state: RootState) => state.contacts.selectedItem);
+  const contact = useSelector(
+    (state: RootState) => state.contacts.selectedItem
+  );
 
   const toggleSelectedItem = (item: ContactType) => {
     if (!editingMode) {
@@ -81,14 +83,14 @@ const ContactList: React.FC<ContactListProps> = ({ editingMode }) => {
     return (
       <AnimatePresence>
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          exit={{ scale: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ ease: "easeInOut", duration: 0.3 }}
           className={styles.addingWindow}
         >
-          <h2>Adding new contact</h2>
-          <div>
+          <h2>New contact</h2>
+          <div className={styles.dataDivs}>
             <span>Name:</span>
             <input
               value={name}
@@ -96,7 +98,7 @@ const ContactList: React.FC<ContactListProps> = ({ editingMode }) => {
               type="text"
             />
           </div>
-          <div>
+          <div className={styles.dataDivs}>
             <span>Number:</span>
             <input
               value={number}
@@ -104,8 +106,7 @@ const ContactList: React.FC<ContactListProps> = ({ editingMode }) => {
               type="text"
             />
           </div>
-          <div>
-            {" "}
+          <div className={styles.dataDivs}>
             <span>Email:</span>
             <input
               value={email}
@@ -113,7 +114,7 @@ const ContactList: React.FC<ContactListProps> = ({ editingMode }) => {
               type="email"
             />
           </div>
-          <div>
+          <div className={styles.windowButtons}>
             <button
               className={styles.cancelBtn}
               onClick={() => onClickCancel()}
@@ -149,34 +150,36 @@ const ContactList: React.FC<ContactListProps> = ({ editingMode }) => {
           +
         </button>
       </div>
-      <AnimatePresence>
-        {filteredContacts.map((item: ContactType) => {
-          return (
-            <motion.div
-              initial={{ x: -500 }}
-              animate={{ x: 0 }}
-              exit={{ x: 500 }}
-              transition={{ ease: "easeOut", duration: 0.2 }}
-              onClick={() => toggleSelectedItem(item)}
-              key={item.number}
-              className={styles.contactItem}
-              style={
-                item.name === contact?.name
-                  ? { backgroundColor: "rgba(150, 190, 215, 0.5)" }
-                  : undefined
-              }
-            >
-              <span className={styles.itemName}>{item.name}</span>
-              <span
-                onClick={(event) => removeItem(item.number, event)}
-                className={styles.removeContact}
+      <div className={styles.listContent}>
+        <AnimatePresence>
+          {filteredContacts.map((item: ContactType) => {
+            return (
+              <motion.div
+                initial={{ x: -500 }}
+                animate={{ x: 0 }}
+                exit={{ x: 500 }}
+                transition={{ ease: "easeOut", duration: 0.2 }}
+                onClick={() => toggleSelectedItem(item)}
+                key={item.number}
+                className={styles.contactItem}
+                style={
+                  item.number === contact?.number
+                    ? { backgroundColor: "rgba(150, 190, 215, 0.5)" }
+                    : undefined
+                }
               >
-                ×
-              </span>
-            </motion.div>
-          );
-        })}
-      </AnimatePresence>
+                <span className={styles.itemName}>{item.name}</span>
+                <span
+                  onClick={(event) => removeItem(item.number, event)}
+                  className={styles.removeContact}
+                >
+                  ×
+                </span>
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
+      </div>
     </motion.div>
   );
 };
