@@ -23,9 +23,7 @@ const Contacts = () => {
   };
 
   const onClickClear = () => {
-    const result = window.confirm(
-      "All contacts will be lost. Are you sure?"
-    );
+    const result = window.confirm("All contacts will be lost. Are you sure?");
     if (result) {
       localStorage.clear();
       dispatch(cleanItems());
@@ -41,11 +39,19 @@ const Contacts = () => {
     >
       <div className={styles.container}>
         <ContactList editingMode={editingMode} />
-        <ContactInfo getEditingMode={getEditingMode} />
+        <motion.div
+          initial={{ rotateY: 90, opacity: 0 }}
+          animate={{ rotateY: 0, opacity: 1 }}
+          exit={{ rotateY: 90, opacity: 0 }}
+          transition={{ ease: "easeInOut", duration: 0.7 }}
+          className={styles.contactInfo}
+        >
+          <ContactInfo getEditingMode={getEditingMode} />
+        </motion.div>
       </div>
-        <button onClick={onClickClear} className={styles.logoutBtn}>
-          clear data
-        </button>
+      <button onClick={onClickClear} className={styles.logoutBtn}>
+        clear data
+      </button>
     </motion.div>
   );
 };

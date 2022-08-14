@@ -39,7 +39,8 @@
   flex-basis: 40%;
   height: 520px;
   margin-right: 6px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   @media (max-width: 480px) {
     height: 400px;
@@ -90,7 +91,6 @@
     background: rgba(253, 253, 253, 0.449);
     margin: 10px auto;
     font-size: 20px;
-    transition: 0.3s;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -139,7 +139,6 @@
 }
 
 .contactInfo {
-  // width: 65%;
   flex-basis: 60%;
   margin-left: 6px;
   position: relative;
