@@ -36,7 +36,7 @@ const AddingWindow: React.FC<AddingWindowProps> = ({ setAddingWindow }) => {
       reset();
     } else {
       alert(
-        "There is an empty field or the data is too lengthy. Please, enter correct data."
+        "There is an empty required field or the data is too lengthy. Please, enter correct data."
       );
     }
   };
